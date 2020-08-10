@@ -16,5 +16,11 @@
 
 <h2>Pinout:</h2>
 
-<img src="">
+<img style="margin:2% 10%;width:80%;" src="./assets/images/promicro-pn532-pinout.png"><br><br>
 
+<h3 style="text-align:center;">SCK  >  Pin 2</h3>
+<h3 style="text-align:center;">MISO  >  Pin 3</h3>
+<h3 style="text-align:center;">MOSI  >  Pin 4</h3>
+<h3 style="text-align:center;">SS  >  Pin 5</h3>
+<h3 style="text-align:center;">VCC  >  VCC</h3>
+<h3 style="text-align:center;">GND  >  GND</h3>
