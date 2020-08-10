@@ -41,8 +41,7 @@ void loop(void) {
 
   success = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, uid, &uidLength);
   if (success) {
-    Serial.println("Read in progress...");
-    Serial.println();
+    Serial.println();Serial.println("Read in progress...");Serial.println();
     if (uidLength == 4)
     {
       for (currentblock = 4; currentblock < 64; currentblock++)
