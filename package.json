@@ -1,0 +1,26 @@
+{
+  "name": "mifare-1k-reader",
+  "version": "1.0.0",
+  "description": "<h2>Hardware:</h2>",
+  "main": "e.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chillbuilds/mifare-1k-reader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chillbuilds/mifare-1k-reader/issues"
+  },
+  "homepage": "https://github.com/chillbuilds/mifare-1k-reader#readme",
+  "dependencies": {
+    "@serialport/parser-readline": "^9.0.1",
+    "fs": "0.0.1-security",
+    "inquirer": "^7.3.3",
+    "serialport": "^9.0.1"
+  }
+}

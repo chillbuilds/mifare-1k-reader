@@ -13,6 +13,9 @@
 <h2>Software:</h2>
 
 • <a href="https://www.arduino.cc/en/main/software">Arduino IDE</a><br>
+• <a href="https://nodejs.org/en/download/">Nodejs</a><br>
+
+<h2>STL files for 3d printing:</h2>
 
 <h2>Pinout:</h2>
 
@@ -24,3 +27,7 @@
 <h3 style="text-align:center;">SS  >  Pin 5</h3>
 <h3 style="text-align:center;">VCC  >  VCC</h3>
 <h3 style="text-align:center;">GND  >  GND</h3>
+
+<h2>Installing Arduino IDE</h2><br>
+
+<h2>Installing Required Libraries</h2>

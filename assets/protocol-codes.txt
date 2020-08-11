@@ -1,0 +1,7 @@
+Arduino Read
+
+001 - serial connection established
+002 - read started
+003 - authentication failed
+
+Node Read
