@@ -12,7 +12,7 @@ Adafruit_PN532 nfc(PN532_SCK, PN532_MISO, PN532_MOSI, PN532_SS);
 
 char recByte;
 char writeArr[37];
-uint8_t sectArr[2];
+byte sectArr[2];
 int led = 6;
 int sector = 12;
 bool receiving = false;
@@ -31,9 +31,11 @@ void setup(void) {
 }
 
 void writeUpdate() {
-//  int x = sectArr[0];
-//  Serial.println(x);
+//  char x = sectArr[0]+0;
   const char * writeData = writeArr;
+  if(sectArr[1] == 0){sector = sectArr[0]-48;}else
+  {sector = ((sectArr[0]-48)*10)+(sectArr[1]-48);}
+  Serial.println(sector);
 uint8_t ndefprefix = 0;
 uint8_t success;                          // Flag to check if there was an error with the PN532
 uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  // Buffer to store the returned UID
@@ -74,8 +76,9 @@ bool authenticated = false;               // Flag to indicate if the sector is a
   delay(1000);
   for(int i = 0; i < 37; i++){
   writeArr[0] = '\0';}
-  for(int i = 0; i < 37; i++){
-  writeArr[0] = '\0';}
+  for(int i = 0; i < 2; i++){
+  sectArr[0] = '\0';}
+  sectIndex = 0;
   index = 0;
 }
 
@@ -87,14 +90,14 @@ void loop(void) {
     if(byteCon == -67 && recSec == false && receiving == false){
         recSec = true;
     }
-    if(recSec == true && byteCon != -62 && byteCon != -67 && byteCon != -89 && receiving == false){
+    if(recSec == true && byteCon != -62 && byteCon != -67 && byteCon != -89 && byteCon != 59 && receiving == false){
       char y = recByte;
       Serial.println(y);
     sectArr[sectIndex] = recByte;
     sectIndex++;
     sectArr[sectIndex] = '\0'; // NULL terminate the array;}
-    if(byteCon == -89){
-        sectArr[sectIndex] == '\0';
+    if(byteCon == -89 && byteCon != 59){
+//        sectArr[sectIndex] == '\0';
         recSec = false;
         sectIndex = 0;
         }
