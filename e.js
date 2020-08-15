@@ -58,17 +58,19 @@ function startPrompt(wait) {
 
 parser.on('data', function (line){
     console.log(line)
-    if(line == 'Data written to sector'){startPrompt(false);}
+    if(line == 'Retrying data retrieval..'){retrieve()}
+    if(line == 'Data written to sector'){startPrompt(false)}
+    if(line == 'Data dump was successful'){startPrompt(false)}
 })
 
 function update() {
     inquirer.prompt({
         name: 'writeData',
         type: 'input',
-        message: 'Enter data (35 character limit per sector)'}).
+        message: 'Enter data (34 character limit per sector)'}).
         then(function(data){
-            if(data.writeData.length > 35){
-                console.log(`Data limit exeeded by ${data.writeData.length-35}`);update()}
+            if(data.writeData.length > 34){
+                console.log(`Data limit exeeded by ${data.writeData.length-34}`);update()}
             else{sectorPrompt(data.writeData)}
     })
 }
@@ -79,7 +81,10 @@ function sectorPrompt(writeData) {
         type: 'number',
         message: 'Enter sector to write data to (1 - 15)'
 }).then(function(data){
-    serialUpdate(writeData, data.sector)
+    if(data.sector > 0 && data.sector < 16){
+    serialUpdate(writeData, data.sector)}else
+    {   console.log('\nProvided sector is out of bounds..\n')
+        sectorPrompt(writeData)}
 })
 }
 
@@ -90,12 +95,12 @@ function serialUpdate(data, sector) {
 }
 
 function retrieve() {
-    port.write('poo')
+    port.write('�')
 }
 
 function quit() {
+    port.close()
     return;
 }
-// recSec = false
-// sectArr[2]
+
 // 0123456789abcdefghijklmnopqrstuvwxy
