@@ -35,7 +35,6 @@ void writeUpdate() {
   const char * writeData = writeArr;
   if(sectArr[1] == 0){sector = sectArr[0]-48;}else
   {sector = ((sectArr[0]-48)*10)+(sectArr[1]-48);}
-  Serial.println(sector);
 uint8_t ndefprefix = 0;
 uint8_t success;                          // Flag to check if there was an error with the PN532
 uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  // Buffer to store the returned UID
@@ -55,8 +54,8 @@ bool authenticated = false;               // Flag to indicate if the sector is a
   
   if (success && sector != 0) 
   {
-    nfc.PrintHex(uid, uidLength);
-    Serial.println("");
+    Serial.print("\nUID: ");nfc.PrintHex(uid, uidLength);
+    Serial.println(" ");
 
     success = nfc.mifareclassic_AuthenticateBlock (uid, uidLength, (sector*4), 0, key);
     if (!success)

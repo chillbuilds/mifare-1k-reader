@@ -59,7 +59,7 @@ function startPrompt(wait) {
 parser.on('data', function (line){
     console.log(line)
     if(line == 'Retrying data retrieval..'){retrieve()}
-    if(line == 'Data written to sector'){startPrompt(false)}
+    if(line == 'Data written to sector'){console.log(' ');startPrompt(false)}
     if(line == 'Data dump was successful'){startPrompt(false)}
 })
 
