@@ -11,8 +11,8 @@
 
 Adafruit_PN532 nfc(PN532_SCK, PN532_MISO, PN532_MOSI, PN532_SS);
 
-int sector = 1;
-const char * writeData = ";666;";
+int sector = 12;
+const char * writeData = ";final sector;";
 uint8_t ndefprefix = 0;
 void setup(void) {
   Serial.begin(115200);
@@ -63,5 +63,5 @@ void loop(void) {
       Serial.println("Write failed \n");
     }
   }
-  delay(5000);
+  delay(2000);
 }

@@ -35,7 +35,7 @@ void loop(void) {
   uint8_t currentblock;                     // Counter to keep track of which block we're on
   bool authenticated = false;               // Flag to indicate if the sector is authenticated
   char data[16];                         // Array to store block data during reads
-  int sector = 1;
+  int sector = 5;
   int multiplier = 0;
   uint8_t key[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
 //  uint8_t key[6] = { 0xD3, 0xF7, 0xD3, 0xF7, 0xD3, 0xF7 };

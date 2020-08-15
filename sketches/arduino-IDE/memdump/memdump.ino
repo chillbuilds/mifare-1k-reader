@@ -95,7 +95,7 @@ bool active = false;
     Serial.print(charHolder);
     }
     if(active == true && holder == 59){
-    Serial.print("Sector ");Serial.print(i/64+1);Serial.print(": ");
+      Serial.print("sector ");Serial.print(i/64+1);Serial.print(": ");
     }
   }
 } 

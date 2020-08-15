@@ -46,7 +46,7 @@ void loop(void) {
     // print uid
     nfc.PrintHex(uid, uidLength);
     Serial.println("");
-    for(int i = 2; i < 16; i++){
+    for(int i = 3; i < 16; i++){
       success = nfc.mifareclassic_AuthenticateBlock (uid, uidLength, (i*4), 0, keyc);
     if (!success)
     {
