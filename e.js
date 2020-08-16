@@ -11,10 +11,12 @@ SerialPort.list().then(function(ports, err){
     else{
         for(var i = 0; i < ports.length; i++){
             if(ports[i].productId == '8037' || ports[i].productId == '0043'){
-                port = new SerialPort(ports[i].path, { baudRate: 115200 }, function(err){if(err)console.log('\nError accessing COM port\nReason: COM ACCESS DENIED\nPlease quit application\n\n')})
-                port.pipe(parser)
-                console.log('\nReader connected successfully\n')
-                startPrompt(true)
+                port = new SerialPort(ports[i].path, { baudRate: 115200 }, function(err){if(err){console.log('\nError accessing COM port\nReason: COM ACCESS DENIED\nExiting application..')}
+                    else{
+                    port.pipe(parser)
+                    console.log('\nReader connected successfully\n')
+                    startPrompt(true)
+                    }})
             }
         if(err){console.log('err')}
     }
@@ -102,5 +104,4 @@ function quit() {
     port.close()
     return;
 }
-
 // 0123456789abcdefghijklmnopqrstuvwxy
